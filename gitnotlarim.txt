@@ -1,0 +1,77 @@
+GIT NOTLARI
+pwd: Hangi dosyada olduğumuzu gösterir.
+cd (Gitmek istediğimiz dosya adı): Bizi o dosyanın içerisine atar.
+cd ..: Yaparsan bir önceki dosyaya gelir.
+clear: Ekranı temizler.
+mkdir Klasöradi: Yeni bir klasör oluşturur.
+touch not.txt: Not adında bir txt belgesi oluşturur.
+rm not.txt: not.txt belgesini siler. Sadece dosyaları silebilir.
+rm -rf klasöradi: Klasörleri silebilir.
+git: Bize git ile ilgili dökümanları verir.
+git config --global user.name "Alper Fidan": Username ekleme
+git config --global user.email "alperfidan@gmail.com": E-mail ekleme
+commit: checkpointlere deniyor.
+Branch: Dal demek iki kişi ayrı ayrı yazıp birleştirebilir. 
+Çalışma Klasörü: git add komutu ile 
+Index - Staging: Bir ara nokta git commit ile
+Local Repository: Artık eklendi 
+git status: Gitin güncel durumunu gösterir. Initten önce yap ki bir daha init yapma  
+git init: başlatıyor ve eklemeye başlıyor.
+ls -la: gizli klasörleri de gösterir.
+git commit yaparken bir isim vermeliyiz. Hemen enter'a basarsan bir ekran açılır o yüzden daha kolay 
+git commit -m "mesaj" şekilde gönder.
+git log yapınca yaptığımız commiti görebilirz
+git add .: her şeyi ekler ama dezavantajları var
+Bazı durumlarda dosyaları saklamak isteriz. 
+touch .gitignore ile gite atmak istemediğimiz dosyaları saklamış oluruz
+
+-- GIT BRANCH --
+git log yazınca HEAD son committe gözükür ama branchta işler karışabilir
+git branch: bize brachları gösterir.
+git branch branchadi: yeni bir branch oluşturur.
+git switch branchadi: diğer branche geçer.
+gir merge branchadi: Branchleri merge eder
+Fast Forwarding master kısmını hiç düzenlemeden feature üzerinden gidip dosyaları garanti altına almaktır. 
+Ya bu branchler karışsaydı. Merge Conflict: Diyelim ki dosyaları birbirine karıştırdık ve bozduk. Sonra editör sayesinde tekrar kaydettik bunu gite tekrar ekleyip öyle merge edebilirz o zaman çalışır.
+Eğer commit etmeden branchler arasında geçiş yaparsan dosyalar seni  takip eder
+git restore yaparsan dosyayı eski haline çevirir. Sonra commit etmeyi unutma
+Stash: Bunları sakla sonra ben kullanırım. Hiçbir yere bağlı değil tüm işlemlere devam edebilirsin. 
+git stash pop dersen sakladığın şeyler geri gelir. Birden fazla yapabilrsin tek tek getirmek için
+git stash apply stash adi sadece o stashi getirir.
+git stash clear: temizler
+git stash list: hepsini gösterir.
+git staash apply: direkt uygular ama stashı kaldırmaz hala durur arkada
+
+-- GEÇMİŞE DÖNME --
+Önceki kayıtlara nasıl dönebiliriz.
+git restore dosyaadi yaparsan dosya bir önceki haline geri döner. (Commmit etmeden)
+git checkout 38c5af895ef01bb8b0414e9f7e1d183354320813 eski haline döner.
+Eğer değişiklik yapmadan geri dönmek istersen tekrardan master branchine dön
+Değişiklik yapmak istersen yeni bir branch açmalısın.
+Eğer ki geri döndün ve döndüğün yerden devam edip eskileri silmek istiyorsun.
+2 seçenek var. Birinde sadece commitleri siliyor içerik kalıyor. Diğerinde hepsini siliyor.
+git reset a4dfb4492825b506f885d2f95128db4063d7415e bu committen sonrakileri siler.
+git reset --hard a4dfb4492825b506f885d2f95128db4063d7415e içerikleri de siler.
+Aynı master üzerinden ilerlemek ama aradaki commitleri atlamak istiyoeum silmeden 
+git revert geri almak istediğin commitin hashini yapıştır ve sırayla git.
+git diff: commitler arasındaki farkı gösteriyor.git diff HEAD son committeki değişiklikkeri 
+iki commit arasındaki farkı merak edersen git diff ilk hash : ikinci hash iki nokta yerine boşluk gelebilir.
+branch adlarını yazarsan onların arasındaki farkı da görebilirsin
+git rebase: farklı branchler birbirinden bağımsızsa durmadan merge etmek yerine devamına yazdırmak gibi asla kullanılmaması gereken durumlar önce merge edip paylaşıp sonra rebase edersen herkesin projesini bozarsın.
+
+-- YUKLEME -- 
+git push -u origin master
+ilk seferden sonra -u yazmak zorunda değilsin.
+Sadece git push yapmak da yeterli
+
+-- SENKRON ETME PC ILE GITHUB --
+git fetch origin master: bu komut bize değişikleri getirir ama uygulamaz öncesinde kontrol edebilelim diye
+git pull origin master: GitHub taki her şeyi direkt uyguluyor.
+
+-- BAŞKA KODLARI KENDİ BİLGİSAYARIMIZA ÇEKME --
+git clone link yaparsak her şey direkt bilgisayarımıza gelir. Kısaca klonlar
+Kod ile tamamen kendimiz devam etmek istersek fork yaparız.
+Klonladıktan sonra izin almadan pushlama yapamazsın.
+Pushlama yapmak istersen de once FORK yapmalısın ardından da pull request yaparak öneride bulunabilirsin.
+FORK yaparak başlıyoruz. Dosyayı düzenleyip önerilerde bulunmak için
+Artık tamamen kendi projemiz gibi düzenleyebiliriz.
